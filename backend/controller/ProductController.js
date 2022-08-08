@@ -9,8 +9,10 @@ exports.createProduct = async (req, res, next) => {
     res.status(201).json({ success: true, product })
 }
 
-exports.getAllProducts = (req, res) => {
-    res.status(200).json({ message: "Route is working...." })
+// Get All products
+exports.getAllProducts = async (req, res) => {
+    const products = await Product.find()
+    res.status(200).json({ success: true, products })
 
 
 }
